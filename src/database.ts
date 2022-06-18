@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 
 import { ExampleModel } from './models';
 
-const database = new Sequelize({
+const database = new Sequelize(process.env.PG_URL as string, {
   define: { underscored: true },
   dialect: 'postgres',
   logging: false,
