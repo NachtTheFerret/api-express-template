@@ -1,12 +1,14 @@
 import { Sequelize } from 'sequelize-typescript';
 
-import { ExampleModel } from './models';
+import { CompanyModel, EmployeeModel } from './models';
+
+const models = [CompanyModel, EmployeeModel];
 
 const database = new Sequelize(process.env.PG_URL as string, {
   define: { underscored: true },
   dialect: 'postgres',
   logging: false,
-  models: [ExampleModel],
+  models,
 });
 
 // database.sync({ alter: true });
