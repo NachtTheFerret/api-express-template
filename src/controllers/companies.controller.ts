@@ -8,8 +8,8 @@ export default {
   createOne: async (req: Request, res: Response) => {
     const { body } = req;
 
-    await CompanyService.createOne(body);
-    res.status(201).json(null);
+    const companyId = await CompanyService.createOne(body);
+    res.status(201).json({ id: companyId });
   },
 
   deleteOne: async (req: Request, res: Response) => {

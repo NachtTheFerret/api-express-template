@@ -5,7 +5,8 @@ import PaginationService from '../utils/Pagination.util';
 
 export default class CompanyService {
   static async createOne(body: CompanyModelCreateBodyType) {
-    await CompanyModel.create(body);
+    const { id } = await CompanyModel.create(body);
+    return id;
   }
 
   static async deleteOne(companyId: string) {

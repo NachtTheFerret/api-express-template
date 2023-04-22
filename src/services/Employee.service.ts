@@ -4,7 +4,8 @@ import type { EmployeeModelCreateBodyType, EmployeeModelUpdateBodyType, Employee
 
 export default class EmployeeService {
   static async createOne(body: EmployeeModelCreateBodyType) {
-    await EmployeeModel.create(body);
+    const { id } = await EmployeeModel.create(body);
+    return id;
   }
 
   static async deleteOne(employeeId: string) {

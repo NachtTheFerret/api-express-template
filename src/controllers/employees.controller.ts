@@ -6,8 +6,8 @@ export default {
   createOne: async (req: Request, res: Response) => {
     const { body } = req;
 
-    await EmployeeService.createOne(body);
-    res.status(201).json(null);
+    const employeeId = await EmployeeService.createOne(body);
+    res.status(201).json({ id: employeeId });
   },
 
   deleteOne: async (req: Request, res: Response) => {
