@@ -1,14 +1,16 @@
 import { Router } from 'express';
 
 import APIError from '../errors/APIError';
-import errorHandler from '../middlewares/errorHandler';
+import errorHandler from '../helpers/error.helper';
 
-import example from './router.example';
+import companiesRouter from './companies.router';
+import employeesRouter from './employees.router';
 
 const router = Router();
 
-router.use('/', example);
+router.use('/companies', companiesRouter);
+router.use('/employees', employeesRouter);
+router.use(() => { throw new APIError('page not found', 404); });
 router.use(errorHandler);
-router.use(() => { throw new APIError('page not fount', 404); });
 
 export default router;
