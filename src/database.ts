@@ -4,9 +4,13 @@ import { CompanyModel, EmployeeModel } from './models';
 
 const models = [CompanyModel, EmployeeModel];
 
-const database = new Sequelize(process.env.PG_URL as string, {
-  define: { underscored: true },
+const database = new Sequelize({
+  username: process.env.PG_USER,
+  password: process.env.PG_PASSWORD,
+  database: process.env.PG_DATABASE,
   dialect: 'postgres',
+
+  define: { underscored: true },
   logging: false,
   models,
 });

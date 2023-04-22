@@ -1,3 +1,3 @@
 import server from './server';
 
-server.listen(process.env.PORT || 8888);
+server.listen(process.env.API_PORT || 8888);
